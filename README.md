@@ -1,2 +1,1 @@
-# Course-Project
-Coursera - Getting and Cleaning Data
+###<center> Human Activity Recognition Using Smartphones Dictionary </center>
