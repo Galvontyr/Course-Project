@@ -54,8 +54,9 @@ theone <- arrange(theone, Subject, Activity) ##Sorted data by
                     ## "Subject" column first then "Activity" column second
 
 ##[Q2] Subset of all the column with mean & std
-tidy_MS <- theone[, c(1, 2, grep("mean", names(theone)), grep("std", names(theone)))]
-##Used grep function to filter all the columns with mean and std (partial match)
+tidy_MS <- theone[, c(1, 2, grep("mean()", names(theone), fixed = T), 
+                      grep("std()", names(theone), fixed = T))]
+##Used grep function to filter all the columns with mean() and std() (partial match)
 
 ##[Q4] Changed column names to a more descriptive ones
 names(tidy_MS) = gsub("-",".",names(tidy_MS))
