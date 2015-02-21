@@ -2,7 +2,7 @@
 This repository contains my course project for Coursera course: Getting and Cleaning Data.  
 List of files that you will find in the repository:  
  1. `run_analysis.R` which is the script for performing the extraction and tidying of the data.  
- 2. [`CodeBook.md`](https://github.com/Galvontyr/Course-Project/blob/master/CodeBook.md) which contains the description of all the variables and data.  
+ 2. <a href="https://github.com/Galvontyr/Course-Project/blob/master/CodeBook.md" target="_blank">`CodeBook.md`</a> which contains the description of all the variables and data.  
  3. `README.md` which contains this introduction but mainly focuses on explaining all the scripts used in `run_analysis.R` to achieve its goal.  
 <br /><br />
 
