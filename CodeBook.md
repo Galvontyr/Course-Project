@@ -4,19 +4,19 @@ output: html_document
 <center><h3>Human Activity Recognition Dictionary</h3></center>
 <br />
 <br />
-Activity
-<DD>&emsp;&emsp;Activities perfomed by the subject
-<DD>&emsp;&emsp;&emsp;&emsp;1. Walking
-<DD>&emsp;&emsp;&emsp;&emsp;2. Walking Up
-<DD>&emsp;&emsp;&emsp;&emsp;3. Walking Down
-<DD>&emsp;&emsp;&emsp;&emsp;4. Sitting
-<DD>&emsp;&emsp;&emsp;&emsp;5. Standing
-<DD>&emsp;&emsp;&emsp;&emsp;6. Laying;
-
-Subject
-<DD>&emsp;&emsp;Human Subject
-<DD>&emsp;&emsp;&emsp;&emsp;1..30 .Integer Human subject ID
-
+<DT>Activity</DT>
+<DD>&emsp;&emsp;&emsp;&emsp;Activities perfomed by the subject
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1. Walking
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2. Walking Up
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;3. Walking Down
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;4. Sitting
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;5. Standing
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;6. Laying
+<br />
+<DT>Subject</DT>
+<DD>&emsp;&emsp;&emsp;&emsp;Human Subject
+<DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;1..30 .Integer Human subject ID
+<br />
 tBodyAcc.mean.X
 <DD>&emsp;&emsp;&emsp;&emsp;Body acceleration with respect to time
 <DD>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Mean value of X per Subject per Activity
