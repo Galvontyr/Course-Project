@@ -112,7 +112,7 @@ To achieve this, we rename the values in the Activity column to its correspondin
 34                                 to = c("Walking", "Walking Up", "Walking Down",
 35                                        "Sitting", "Standing", "Laying"))
 ```
-To make our data look more organized, we sort the values of "Subject" and "Activity"
+To make our data look more organized, we sort the data by "Subject" and then by "Activity"
 ```r
 38 theone <- arrange(theone, Subject, Activity)
 ```
@@ -126,7 +126,8 @@ To do this, we subset the data and take only the columns with "mean()" and "std(
 42                      grep("std()", names(theone), fixed = T))]
 ```
 Note1: Argument `fixed =T` is needed in this instance to treat `()` as string
-Note2: This will not include the columns with "meanFreq" and will result to subsetting only 66 columns and in a way much "cleaner"
+Note2: This will not include the columns with "meanFreq" and will result to subsetting only 66 columns and in a way much "cleaner".
+
 <br />
 ####Solving Problem #4
 > Appropriately labels the data set with descriptive variable names.
