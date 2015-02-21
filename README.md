@@ -86,13 +86,27 @@ and change their column names to `Activity` and `Subject`
 ```
 <br />
 ####Solving Problem #1
-We bind test and train data sets into one.
+> Merges the training and the test sets to create one data set.
+
+To merge both data sets, we use `rbind`
 ```r
 29 theone <- rbind(tidy_test, tidy_train)
 ```
 <br />
 ####Solving Problem #3
-Next, we rename the Activity column values to be more descriptive as indicated in `UCI HAR Dataset/activity_labels.txt`.
+> Uses descriptive activity names to name the activities in the data set
+
+To achieve this, we rename the values in the Activity column to its corresponding more descriptive values as indicated in `UCI HAR Dataset/activity_labels.txt`.
+
+| Integer value | Descriptive value |
+| :---: | --- |
+| 1 | Walking |
+| 2 | Walking Up |
+| 3 | Walking Down |
+| 4 | Sitting |
+| 5 | Standing |
+| 6 | Laying |
+
 ```r
 33 theone$Activity <- mapvalues(theone$Activity, from = c(1, 2, 3, 4, 5, 6), 
 34                                 to = c("Walking", "Walking Up", "Walking Down",
@@ -104,15 +118,20 @@ To make our data look more organized, we sort the values of "Subject" and "Activ
 ```
 <br />
 ####Solving Problem #2
-We subset the data and take only the columns with "mean()" and "std()"
+> Extracts only the measurements on the mean and standard deviation for each measurement.
+
+To do this, we subset the data and take only the columns with "mean()" and "std()". 
 ```r
 41 tidy_MS <- theone[, c(1, 2, grep("mean()", names(theone), fixed = T), 
 42                      grep("std()", names(theone), fixed = T))]
 ```
-Note: Argument `fixed =T` is needed in this instance to treat `()` as string
+Note1: Argument `fixed =T` is needed in this instance to treat `()` as string
+Note2: This will not include the columns with "meanFreq" and will result to subsetting only 66 columns and in a way much "cleaner"
 <br />
 ####Solving Problem #4
-We rename the variable names to omit the `-` and replace it with an acceptable separator `.`. We also removed the `()` and also renamed `BodyBody` to just `Body` to maintain uniformity within our variable names
+> Appropriately labels the data set with descriptive variable names.
+
+Next, we use `gsub` to rename the variable names to omit the `-` and replace it with an acceptable separator `.`. We also removed the `()` and also renamed `BodyBody` to just `Body` to maintain uniformity within our variable names
 ```r
 46 names(tidy_MS) = gsub("-",".",names(tidy_MS))
 47 names(tidy_MS) = gsub("()","",names(tidy_MS),fixed = T)
@@ -121,9 +140,15 @@ We rename the variable names to omit the `-` and replace it with an acceptable s
 ```
 <br />
 ####Solving Problem #5
-We create a new independent tidy data set with the average of each variable for each activity and each subject. For this problem we will use `melt` to create a long data without getting the mean and then use `dcast` to create a wide tidy data set with the mean of each variable for each activity and each subkect.
+> From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+For this problem, we create a new independent tidy data set with the average of each variable for each activity and each subject. For this problem we will use `melt` to create a long data without getting the mean and then use `dcast` to create a wide tidy data set with the mean of each variable for each activity and each subkect.
 ```r
 54 MS_melt <- melt(tidy_MS, id=c("Subject", "Activity"))
 
 59 MS_data <- dcast(MS_melt, Activity + Subject ~ variable,mean)
+```
+To view the resulting tidy data, use
+```r
+View(MS_data)
 ```
