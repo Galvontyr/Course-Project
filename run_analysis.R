@@ -62,6 +62,9 @@ tidy_MS <- theone[, c(1, 2, grep("mean()", names(theone), fixed = T),
 names(tidy_MS) = gsub("-",".",names(tidy_MS))
 names(tidy_MS) = gsub("()","",names(tidy_MS),fixed = T)
 ##Used gsub function  to replace all the dashes with "." and remove all the "()"
+names(tidy_MS) = gsub("BodyBody","Body",names(tidy_MS))
+##Also changed the "BodyBody" feature name to just "Body" 
+## which felt wrong when trying analyze what BodyBody means
 
 ##[Q5] New table with mean of each variable for each activity and subject
 MS_melt <- melt(tidy_MS, id=c("Subject", "Activity"))
